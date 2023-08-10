@@ -3,7 +3,7 @@ const readlineSync= require('readline-sync');
 let condition=false;
 while (!condition){
     function menu(){
-        console.log(`======Menu======
+        console.log(`       ======Menu======
     Men lis plan ki disponib yo : 
     1-120 Min + 4GB 7J 270G
     2-60 Min + 3GB 2J 100G
