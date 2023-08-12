@@ -1,9 +1,16 @@
-const  readlineSync=require('readline-sync');
+const  readlineSync=require('readline-sync')
 
-console.log("Pwogram lan pral transfome teks ou bay lan en majiskil"):
+console.log("Pwogram lan pral transfome teks ou bay lan en majiskil")
 
 let fraz=readlineSync.question("Antre fraz ou an la : ")
+let mot=fraz.split(" ")
+let nouvoTeks=""
 
-fraz=fraz.toUpperCase
+for (mot of fraz) {
+    const premyeMo = mot.charAt(0).toUpperCase()
+    const resMo = mot.slice(1).toLowerCase()
+    nouvoTeks += premyeMo + resMo + " "
+}
 
-console.log(fraz)
+
+console.log(nouvoTeks)
