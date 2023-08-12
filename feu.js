@@ -2,7 +2,7 @@ const readlineSync=require('readline-sync');
 let couleurValide=false;
 
 function dife(){
-    while(!couleurValide){
+    while(couleurValide==false){
         let feu= readlineSync.question(`Entrer la couleur du feu circulation :`);
         feu=feu.toLowerCase();
     
