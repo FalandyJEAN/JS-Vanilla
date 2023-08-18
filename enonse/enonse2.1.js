@@ -8,7 +8,7 @@ function addTask(deskripsyon) {
 
 function displayTasks() {
     if (todoList.length === 0) {
-      console.log("Pa gen okenn tach ki gentan kreye.");
+      console.log("Pa gen okenn tach ki gentan kreye.")
     } else {
       for (let i = 0; i < todoList.length; i++) {
         console.log(`${i + 1}- ${todoList[i]}`)
