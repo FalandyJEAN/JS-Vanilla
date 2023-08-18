@@ -11,7 +11,7 @@ function displayTasks() {
       console.log("Pa gen okenn tach ki gentan kreye.");
     } else {
       for (let i = 0; i < todoList.length; i++) {
-        console.log(`${i + 1}- ${todoList[i]}`);
+        console.log(`${i + 1}- ${todoList[i]}`)
       }
     }
   }
