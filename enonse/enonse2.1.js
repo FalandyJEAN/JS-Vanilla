@@ -20,6 +20,8 @@ function markTaskDone(pozisyonTachLan) {
   if (pozisyonTachLan >= 0 && pozisyonTachLan < todoList.length) {
     console.log(`Tach "${todoList[pozisyonTachLan]}" fini kounya.`)
     todoList.splice(pozisyonTachLan, 1)
+  }else if(todoList.length===0){
+    console.log("Pa gen okenn tach ki gentan kreye.")
   } else {
     console.log("Pozisyon ou antre an pa kòrèk.")
   }
@@ -27,7 +29,7 @@ function markTaskDone(pozisyonTachLan) {
 
 let choice
 do {
-  choice = readlineSync.question(`****Meni****
+  choice = readlineSync.question(`*********Meni*********
   1. Ajoute tach
   2. Afiche tach yo
   3. Fini yon tach
@@ -44,7 +46,7 @@ do {
       displayTasks()
       break
     case "3":
-      let taskPozisyon = parseInt(readlineSync.question("Antre pozisyon tac wap femen an :")) - 1
+      let taskPozisyon = parseInt(readlineSync.question("Antre pozisyon tach wap femen an :")) - 1
       markTaskDone(taskPozisyon)
       break
     case "4":
