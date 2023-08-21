@@ -1,8 +1,8 @@
 let mX = 5, mY = 5
 let tablo = []
 
-function generateTable() {
-  tablo = [];
+function genereTab() {
+  tablo = []
   for (let x = 0; x < mX; x++) {
     let row = [];
     for (let y = 0; y < mY; y++) {
@@ -17,19 +17,19 @@ function generateTable() {
   }
 }
 
-generateTable()
+genereTab()
 
 console.log("Nonb ki soti yo se: ")
 setTimeout(() => {
-  let boulYo = [];
+  let boulYo = []
   for (let i = 0; i < 5; i++) {
-    let randX, randY, nonb;
+    let randX, randY, nonb
     do {
       randX = Math.floor(Math.random() * mX)
       randY = Math.floor(Math.random() * mY)
-      nonb = tablo[randX][randY];
+      nonb = tablo[randX][randY]
     } while (boulYo.includes(nonb))
-    boulYo.push(nonb);
+    boulYo.push(nonb)
     tablo[randX][randY] = `⭐`
   }
 
