@@ -5,7 +5,7 @@ const balistik = {
   _salt: "Ux00",
   encrypt: function (tèks) {
     if (typeof tèks !== 'string' || !tèks.match(/^[a-zA-Z\s]+$/)) {
-      throw new Error("EreVale: Teks la dwe gen selman karakte alfabetik ak espas.");
+      throw new Error("EreVale: Teks la dwe gen sèlman karaktè alfabetik ak espas.");
     }
 
     const teksKripte = tèks
@@ -28,9 +28,6 @@ const balistik = {
     const teksKripte = patiYo.slice(1, -1).join('.');
     const lotPati = parseInt(patiYo[patiYo.length - 1]);
 
-    if (teksKripte.length !== lotPati) {
-      throw new Error("ErèLongè: Longè tèks kripte a pa koresponn.");
-    }
 
     const teksDekripte = teksKripte
       .split('.')
@@ -45,19 +42,23 @@ const balistik = {
   },
 };
 
-do {
+while (true) {
   try {
-    console.log("Chwazi aksyon ou vle fè:\n1. Kripte yon teks\n2. Dekripte yon teks\n3. Sòti")
+    console.log("Chwazi aksyon ou vle fè:\n1. Kripte yon tèks\n2. Dekripte yon tèks\n3. Sòti")
     const chwa = readlineSync.question("Antre chwa ou an : ");
 
     if (chwa === "1") {
-      const teksKripte = readlineSync.question("Antre teks ou vle kripte: ");
-      const teksKripteResultat = balistik.encrypt(teksKripte);
-      console.log(`Teks kripte a: ${teksKripteResultat}`);
+      const tèksKripte = readlineSync.question("Antre tèks ou vle kripte: ");
+      const tèksKripteResultat = balistik.encrypt(tèksKripte);
+      console.log(`Tèks kripte a: ${tèksKripteResultat}`);
     } else if (chwa === "2") {
-      const teksDekripte = readlineSync.question("Antre teks kripte ou vle dekripte: ");
-      const teksDekripteResultat = balistik.decrypt(teksDekripte);
-      console.log(`Teks dekripte a: ${teksDekripteResultat}`);
+      const tèksDekripte = readlineSync.question("Antre tèks kripte ou vle dekripte: ");
+      try {
+        const tèksDekripteResultat = balistik.decrypt(tèksDekripte);
+        console.log(`Tèks dekripte a: ${tèksDekripteResultat}`);
+      } catch (error) {
+        console.error(`Erè: ${error.message}`);
+      }
     } else if (chwa === "3") {
       console.log("Mèsi! Konekte ankò.")
       break;
@@ -65,6 +66,6 @@ do {
       console.log("Ou fè yon chwa ki envalid")
     }
   } catch (error) {
-    console.error(`Ere: ${error.message}`);
+    console.error(`Erè: ${error.message}`);
   }
-} while (true);
+}
