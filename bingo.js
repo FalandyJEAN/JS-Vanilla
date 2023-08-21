@@ -1,5 +1,5 @@
-let mX = 5, mY = 5;
-let tablo = [];
+let mX = 5, mY = 5
+let tablo = []
 
 function generateTable() {
   tablo = [];
@@ -8,16 +8,16 @@ function generateTable() {
     for (let y = 0; y < mY; y++) {
       let nonb;
       do {
-        nonb = Math.floor(Math.random() * 100);
-      } while (row.includes(nonb));
-      row.push(nonb);
+        nonb = Math.floor(Math.random() * 100)
+      } while (row.includes(nonb))
+      row.push(nonb)
     }
     tablo.push(row);
-    console.log(row.join('\t\t'));
+    console.log(row.join('\t\t'))
   }
 }
 
-generateTable();
+generateTable()
 
 console.log("Nonb ki soti yo se: ")
 setTimeout(() => {
@@ -25,24 +25,24 @@ setTimeout(() => {
   for (let i = 0; i < 5; i++) {
     let randX, randY, nonb;
     do {
-      randX = Math.floor(Math.random() * mX);
-      randY = Math.floor(Math.random() * mY);
+      randX = Math.floor(Math.random() * mX)
+      randY = Math.floor(Math.random() * mY)
       nonb = tablo[randX][randY];
-    } while (boulYo.includes(nonb));
+    } while (boulYo.includes(nonb))
     boulYo.push(nonb);
-    tablo[randX][randY] = `⭐`;
+    tablo[randX][randY] = `⭐`
   }
 
   for (let i = 0; i < boulYo.length; i++) {
-    console.log(boulYo[i]);
+    console.log(boulYo[i])
   }
 
   for (let i = 0; i < mX; i++) {
     for (let j = 0; j < mY; j++) {
       if (boulYo.includes(tablo[i][j])) {
-        tablo[i][j] = `[${tablo[i][j]}]`;
+        tablo[i][j] = `[${tablo[i][j]}]`
       }
     }
-    console.log(tablo[i].join('\t\t'));
+    console.log(tablo[i].join('\t\t'))
   }
-}, 2000);
+}, 2000)
