@@ -1,41 +1,54 @@
-let mX = 5, mY = 5
+const readlineSync=require("readline-sync")
+let mX = 5
+let mY = 5
 let tablo = []
+let chans = 2
 
-function genereTab() {
-  tablo = []
-  for (let x = 0; x < mX; x++) {
-    let row = []
-    for (let y = 0; y < mY; y++) {
-      let nonb
-      do {
-        nonb = Math.floor(Math.random() * 100)
-      } while (row.includes(nonb))
-      row.push(nonb)
-    }
-    tablo.push(row)
+tablo = []
+for (let x = 0; x < mX; x++) {
+  let row = [];
+  for (let y = 0; y < mY; y++) {
+    let nonb
+    do {
+      nonb = Math.floor(Math.random() * 100)
+    } while (row.includes(nonb))
+    row.push(nonb)
   }
+  tablo.push(row)
 }
 
-genereTab()
+let mitanX = Math.floor(mX / 2)
+let mitanY = Math.floor(mY / 2)
+for (let i = 0; i < mX; i++) {
+  for (let j = 0; j < mY; j++) {
+    tablo[i][j] = (i === mitanX && j === mitanY) ? '⭐' : tablo[i][j]
+  }
+}
 
 console.log("Hello! Men kat la:")
 
 for (let x = 0; x < mX; x++) {
-  let row = []
+  let row = [];
   for (let y = 0; y < mY; y++) {
     row.push(tablo[x][y])
   }
   console.log(row.join('\t\t'))
 }
 
-console.log("\n")
-console.log("Nonb ki soti yo se: ")
+while (chans > 0) {
+  console.log(`Ou gen ${chans} chans.`)
+  
+  let bingo = []
+  for (let i = 0; i < mX; i++) {
+    for (let j = 0; j < mY; j++) {
+      let nonb = tablo[i][j]
+      bingo.push(nonb)
+    }
+  }
 
-setTimeout(() => {
   let boulYo = []
-
   while (boulYo.length < 5) {
-    let nonb = Math.floor(Math.random() * 100)
+    let nonb = bingo[Math.floor(Math.random() * bingo.length)]
     if (!boulYo.includes(nonb)) {
       boulYo.push(nonb)
     }
@@ -43,19 +56,61 @@ setTimeout(() => {
 
   console.log("Aprè tiraj, men nonb ki BINGO yo:", boulYo)
 
-  let middleX = Math.floor(mX / 2)
-  let middleY = Math.floor(mY / 2)
   for (let i = 0; i < mX; i++) {
     for (let j = 0; j < mY; j++) {
-      tablo[i][j] = (i === middleX && j === middleY) ? '⭐' : tablo[i][j]
+      if (boulYo.includes(tablo[i][j])) {
+        tablo[i][j] = `[${tablo[i][j]}]`
+      } else {
+        tablo[i][j] = `${tablo[i][j]}`
+      }
     }
   }
 
-  for (let i = 0; i < mX; i++) {
-    let row = [];
-    for (let j = 0; j < mY; j++) {
-      row.push(tablo[i][j])
+  console.log("Kat la ak nonb BINGO yo:")
+  for (let x = 0; x < mX; x++) {
+    let row = []
+    for (let y = 0; y < mY; y++) {
+      row.push(tablo[x][y])
     }
     console.log(row.join('\t\t'))
   }
-}, 2000)
+
+  chans--
+
+  if (chans > 0) {
+    let rejwe = readlineSync.question("Ou vle rejwe? (O/N): ")
+    if (rejwe.toLowerCase() === 'o') {
+      tablo = [];
+      for (let x = 0; x < mX; x++) {
+        let row = [];
+        for (let y = 0; y < mY; y++) {
+          let nonb;
+          do {
+            nonb = Math.floor(Math.random() * 100);
+          } while (row.includes(nonb))
+          row.push(nonb)
+        }
+        tablo.push(row)
+      }
+
+      mitanX = Math.floor(mX / 2)
+      mitanY = Math.floor(mY / 2)
+      for (let i = 0; i < mX; i++) {
+        for (let j = 0; j < mY; j++) {
+          tablo[i][j] = (i === mitanX && j === mitanY) ? '⭐' : tablo[i][j]
+        }
+      }
+
+      console.log("Hello! Men kat la:")
+      for (let x = 0; x < mX; x++) {
+        let row = [];
+        for (let y = 0; y < mY; y++) {
+          row.push(tablo[x][y])
+        }
+        console.log(row.join('\t\t'))
+      }
+    }
+  }
+}
+
+console.log("Ou temine. Mèsi!")
