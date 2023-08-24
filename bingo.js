@@ -14,7 +14,7 @@ while (chans > 0) {
 
   tablo = []
   for (let x = 0; x < mX; x++) {
-    let row = []
+    let row = [];
     for (let y = 0; y < mY; y++) {
       let nonb
       do {
@@ -35,7 +35,7 @@ while (chans > 0) {
   }
 
   for (let x = 0; x < mX; x++) {
-    let row = []
+    let row = [];
     for (let y = 0; y < mY; y++) {
       row.push(tablo[x][y])
     }
@@ -81,6 +81,29 @@ while (chans > 0) {
       row.push(tablo[x][y])
     }
     console.log(row.join('\t\t'))
+  }
+
+  let hasBingo = false
+  for (let x = 0; x < mX; x++) {
+    for (let y = 0; y < mY; y++) {
+      if (boulYo.includes(tablo[x][y])) {
+        tablo[x][y] = `[${tablo[x][y]}]`
+        hasBingo = true
+      }
+    }
+  }
+
+  console.log("Kat la ak nonb BINGO yo:")
+  for (let x = 0; x < mX; x++) {
+    let row = []
+    for (let y = 0; y < mY; y++) {
+      row.push(tablo[x][y])
+    }
+    console.log(row.join('\t\t'))
+  }
+
+  if (hasBingo) {
+    console.log("Bravo! Ou gen yon Bingo!")
   }
 
   chans--
