@@ -37,10 +37,13 @@ class BankAccount {
 
 const account1 = new BankAccount("00577883", "Falandy Jean", 700)
 
+
+let initialBalance=BankAccount.initialBalance
+console.log(`Kantite kob ou te genyen sou kont lan jis ka dat se ${initialBalance}
+`)
+
 account1.deposit(500)
 account1.withdraw(200)
-
-
 const balance = account1.getBalance()
 
 console.log(account1.toString())
