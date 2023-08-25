@@ -39,7 +39,7 @@ const account1 = new BankAccount("00577883", "Falandy Jean", 700)
 
 
 let initialBalanceAccount = new BankAccount()
-console.log(`Kantite kob ou te genyen sou kont lan jis ka dat se ${initialBalanceAccount.balance} HTG
+console.log(`Kantite kob ou  genyen sou kont lan jis ka dat se ${initialBalanceAccount.balance} HTG
 `)
 
 account1.deposit(500)
