@@ -10,10 +10,10 @@ function ranvese(chenn, N) {
         }
     }
     
-    const pozisyon = aranjman.indexOf(N);
-    console.log(`N = ${N}, pozisyon l = ${pozisyon}`);
+    const pozisyon = aranjman.indexOf(N)
+    console.log(`N = ${N}, pozisyon l = ${pozisyon}`)
 }
 
-const chenn = "0,1,2,3,4";
-const N = 4;
-ranvese(chenn, N);
+const chenn = "0,1,2,3,4"
+const N = 4
+ranvese(chenn, N)
