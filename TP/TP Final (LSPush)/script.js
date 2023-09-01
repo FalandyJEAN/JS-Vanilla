@@ -48,15 +48,14 @@ class LSPush {
     saveDataToLocalStorage() {
       localStorage.setItem(this.localStorageKey, JSON.stringify(this.data))
     }
-  }
+}
   
-  let lsPush = new LSPush()
-  lsPush.add("00045", "audio")
-  lsPush.add("00050", "ads")
-  lsPush.update("00045", "newAudio")
-  console.log(lsPush.get("00045"))
-  console.log(lsPush.get("00050"))
-  lsPush.delete("00045")
-  lsPush.delete("00050")
-  lsPush.getAll
-  
+let lsPush = new LSPush()
+lsPush.add("00045", "audio")
+lsPush.add("00050", "ads")
+console.log(lsPush.getAll())
+lsPush.update("00045", "newAudio")
+console.log(lsPush.get("00045"))
+console.log(lsPush.get("00050"))
+lsPush.delete("00045")
+lsPush.delete("00050")
